@@ -80,6 +80,9 @@ Connection ~ 6200 6950
 Connection ~ 7950 6950
 Connection ~ 6550 6950
 Connection ~ 6550 7150
+Connection ~ 6200 9250
+Connection ~ 8000 9300
+Connection ~ 6200 9450
 NoConn ~ 9900 2450
 NoConn ~ 9900 2550
 Wire Wire Line
@@ -253,6 +256,8 @@ Wire Wire Line
 Wire Wire Line
 	5250 950  5600 950 
 Wire Wire Line
+	5750 9700 6550 9700
+Wire Wire Line
 	6100 7450 6550 7450
 Wire Wire Line
 	6100 7550 6550 7550
@@ -263,13 +268,31 @@ Wire Wire Line
 Wire Wire Line
 	6100 7850 6550 7850
 Wire Wire Line
+	6100 7950 6550 7950
+Wire Wire Line
+	6100 8050 6550 8050
+Wire Wire Line
+	6100 8150 6550 8150
+Wire Wire Line
 	6200 6850 6200 6950
 Wire Wire Line
 	6200 6950 6550 6950
 Wire Wire Line
+	6200 9150 6200 9250
+Wire Wire Line
+	6200 9250 6550 9250
+Wire Wire Line
+	6200 9450 6450 9450
+Wire Wire Line
+	6450 9450 6450 9600
+Wire Wire Line
+	6450 9600 6550 9600
+Wire Wire Line
 	6550 6950 6550 7150
 Wire Wire Line
 	6550 7150 6550 7250
+Wire Wire Line
+	6550 9250 6550 9500
 Wire Wire Line
 	7050 8650 7150 8650
 Wire Wire Line
@@ -287,13 +310,13 @@ Wire Wire Line
 Wire Wire Line
 	7500 7850 7900 7850
 Wire Wire Line
-	7500 7950 7900 7950
+	7550 9300 7550 9500
 Wire Wire Line
-	7500 8050 7900 8050
-Wire Wire Line
-	7500 8150 7900 8150
+	7550 9300 8000 9300
 Wire Wire Line
 	7950 6850 7950 6950
+Wire Wire Line
+	8000 9200 8000 9300
 Wire Wire Line
 	8050 4050 8450 4050
 Wire Wire Line
@@ -358,18 +381,14 @@ Wire Wire Line
 	9800 1450 9800 1500
 Wire Wire Line
 	9900 2750 10150 2750
-Text Notes 1400 5300 2    50   ~ 0
+Text Notes 1150 5300 2    50   ~ 0
 I2C2
-Text Notes 1750 2050 2    50   ~ 0
-TODO maybe button on boot pin?
-Text Notes 2450 1650 2    50   ~ 0
-TODO nRST to Jetson GPIO
 Text Notes 3950 1150 2    50   ~ 0
 Bypass capacitors for MCU, one per pIn
-Text Notes 5200 4200 2    50   ~ 0
-I2C1
 Text Notes 5250 1150 2    50   ~ 0
 TODO bulk capacitance
+Text Notes 5400 4200 2    50   ~ 0
+I2C1
 Text Notes 5900 2600 2    50   ~ 0
 Used to upload firmware via DFU
 Text Notes 6200 6000 2    50   ~ 0
@@ -380,6 +399,8 @@ Text Notes 7250 6550 2    50   ~ 0
 1:4    A->B\n5:8    B->A
 Text Notes 11050 4300 2    50   ~ 0
 TODO set 0R to DNP depending on choice
+Text Label 1350 2100 0    50   ~ 0
+MCU_BOOT
 Text Label 1500 1800 0    50   ~ 0
 MCU_nRST
 Text Label 1550 5800 0    50   ~ 0
@@ -394,10 +415,10 @@ Text Label 4700 7325 0    50   ~ 0
 MCU_INT1
 Text Label 4700 7425 0    50   ~ 0
 MCU_FSYNC
-Text Label 5050 7100 2    50   ~ 0
-NX_GPIO1
-Text Label 5050 7200 2    50   ~ 0
-NX_GPIO2
+Text Label 4800 8000 0    50   ~ 0
+MCU_FRAME_TRIGGER
+Text Label 5750 9700 0    50   ~ 0
+MCU_FRAME_TRIGGER
 Text Label 6100 7450 0    50   ~ 0
 MCU_FSYNC
 Text Label 6100 7550 0    50   ~ 0
@@ -407,7 +428,13 @@ MCU_CLK
 Text Label 6100 7750 0    50   ~ 0
 MCU_NSS
 Text Label 6100 7850 0    50   ~ 0
-IMU_MISO
+MCU_MISO
+Text Label 6100 7950 0    50   ~ 0
+MCU_INT1
+Text Label 6100 8050 0    50   ~ 0
+MCU_nRST
+Text Label 6100 8150 0    50   ~ 0
+MCU_BOOT
 Text Label 7900 7450 2    50   ~ 0
 IMU_FSYNC
 Text Label 7900 7550 2    50   ~ 0
@@ -417,13 +444,7 @@ IMU_SCK
 Text Label 7900 7750 2    50   ~ 0
 IMU_CS
 Text Label 7900 7850 2    50   ~ 0
-MCU_MISO
-Text Label 7900 7950 2    50   ~ 0
-MCU_INT1
-Text Label 7900 8050 2    50   ~ 0
-NX_GPIO1
-Text Label 7900 8150 2    50   ~ 0
-NX_GPIO2
+IMU_MISO
 Text Label 8050 4050 0    50   ~ 0
 IMU_MISO
 Text Label 8050 4700 0    50   ~ 0
@@ -451,35 +472,35 @@ MCU_CLK
 Text Label 9150 6000 2    50   ~ 0
 MCU_NSS
 Text GLabel 1900 5200 0    50   Input ~ 0
-CAM0_SDA
+CAM0_SDA_3V3
 Text GLabel 1900 5300 0    50   Input ~ 0
-CAM0_SCL
+CAM0_SCL_3V3
 Text GLabel 4500 2900 2    50   Input ~ 0
 MCU_USBFS_D_N
 Text GLabel 4500 3000 2    50   Input ~ 0
 MCU_USBFS_D_P
 Text GLabel 4500 4100 2    50   Input ~ 0
-CAM1_SCL
+CAM1_SCL_3V3
 Text GLabel 4500 4200 2    50   Input ~ 0
-CAM1_SDA
+CAM1_SDA_3V3
 Text GLabel 4500 4900 2    50   Input ~ 0
 MCU_USBHS_D_N
 Text GLabel 4500 5000 2    50   Input ~ 0
 MCU_USBHS_D_P
 Text GLabel 4700 7500 2    50   Input ~ 0
 RST_BUTTON
-Text GLabel 4700 8150 2    50   Input ~ 0
-MCU_FRAME_TRIGGER
 Text GLabel 5000 6100 2    50   Input ~ 0
 nSHUTDOWN_REQ
 Text GLabel 5000 6200 2    50   Input ~ 0
 MCU_nPWEN
-Text GLabel 6550 7950 0    50   Input ~ 0
+Text GLabel 7500 7950 2    50   Input ~ 0
 IMU_INT1
-Text GLabel 6550 8050 0    50   Input ~ 0
-NX_MCU_GPIO1
-Text GLabel 6550 8150 0    50   Input ~ 0
-NX_MCU_GPIO2
+Text GLabel 7500 8050 2    50   Input ~ 0
+NX_MCU_nRST
+Text GLabel 7500 8150 2    50   Input ~ 0
+NX_MCU_BOOT
+Text GLabel 7550 9700 2    50   Input ~ 0
+FRAME_TRIGGER
 Text GLabel 8750 4350 2    50   Input ~ 0
 NX_SPI_MISO
 Text GLabel 8750 5000 2    50   Input ~ 0
@@ -535,6 +556,17 @@ F 3 "" H 6200 6850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
+L power:+3.3V #PWR0205
+U 1 1 5EC2BF13
+P 6200 9150
+F 0 "#PWR0205" H 6200 9000 50  0001 C CNN
+F 1 "+3.3V" H 6215 9320 50  0000 C CNN
+F 2 "" H 6200 9150 50  0001 C CNN
+F 3 "" H 6200 9150 50  0001 C CNN
+	1    6200 9150
+	1    0    0    -1  
+$EndComp
+$Comp
 L power:+1V8 #PWR0192
 U 1 1 5EC1F8BA
 P 7950 6850
@@ -543,6 +575,17 @@ F 1 "+1V8" H 7965 7020 50  0000 C CNN
 F 2 "" H 7950 6850 50  0001 C CNN
 F 3 "" H 7950 6850 50  0001 C CNN
 	1    7950 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR0207
+U 1 1 5EC2D289
+P 8000 9200
+F 0 "#PWR0207" H 8000 9050 50  0001 C CNN
+F 1 "+1V8" H 8015 9370 50  0000 C CNN
+F 2 "" H 8000 9200 50  0001 C CNN
+F 3 "" H 8000 9200 50  0001 C CNN
+	1    8000 9200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -645,6 +688,17 @@ F 3 "" H 6200 7150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
+L power:GND #PWR0206
+U 1 1 5EC2BF1F
+P 6200 9450
+F 0 "#PWR0206" H 6200 9200 50  0001 C CNN
+F 1 "GND" V 6205 9325 50  0001 R CNN
+F 2 "" H 6200 9450 50  0001 C CNN
+F 3 "" H 6200 9450 50  0001 C CNN
+	1    6200 9450
+	1    0    0    -1  
+$EndComp
+$Comp
 L power:GND #PWR0202
 U 1 1 5EC17999
 P 7050 8650
@@ -656,6 +710,17 @@ F 3 "" H 7050 8650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
+L power:GND #PWR0204
+U 1 1 5EB89064
+P 7500 7250
+F 0 "#PWR0204" H 7500 7000 50  0001 C CNN
+F 1 "GND" V 7505 7125 50  0001 R CNN
+F 2 "" H 7500 7250 50  0001 C CNN
+F 3 "" H 7500 7250 50  0001 C CNN
+	1    7500 7250
+	1    0    0    -1  
+$EndComp
+$Comp
 L power:GND #PWR0193
 U 1 1 5EC156BA
 P 7950 7150
@@ -664,6 +729,17 @@ F 1 "GND" V 7955 7025 50  0001 R CNN
 F 2 "" H 7950 7150 50  0001 C CNN
 F 3 "" H 7950 7150 50  0001 C CNN
 	1    7950 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0208
+U 1 1 5EC2D295
+P 8000 9500
+F 0 "#PWR0208" H 8000 9250 50  0001 C CNN
+F 1 "GND" V 8005 9375 50  0001 R CNN
+F 2 "" H 8000 9500 50  0001 C CNN
+F 3 "" H 8000 9500 50  0001 C CNN
+	1    8000 9500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1052,6 +1128,17 @@ F 3 "~" H 6200 7050 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
+L Device:C_Small C?
+U 1 1 5EC2BF2B
+P 6200 9350
+F 0 "C?" V 6427 9350 50  0000 C CNN
+F 1 "100n" V 6337 9350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6200 9350 50  0001 C CNN
+F 3 "~" H 6200 9350 50  0001 C CNN
+	1    6200 9350
+	-1   0    0    1   
+$EndComp
+$Comp
 L Device:C_Small C59
 U 1 1 5EC12820
 P 7950 7050
@@ -1060,6 +1147,17 @@ F 1 "100n" V 8087 7050 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0402_1005Metric" H 7950 7050 50  0001 C CNN
 F 3 "~" H 7950 7050 50  0001 C CNN
 	1    7950 7050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EC2D2A1
+P 8000 9400
+F 0 "C?" V 8227 9400 50  0000 C CNN
+F 1 "100n" V 8137 9400 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8000 9400 50  0001 C CNN
+F 3 "~" H 8000 9400 50  0001 C CNN
+	1    8000 9400
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -1105,6 +1203,36 @@ F 2 "Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm" H 1450 3450 50  0001 C CNN
 F 3 "~" H 1450 3450 50  0001 C CNN
 	1    1450 3450
 	0    -1   -1   0   
+$EndComp
+$Comp
+L voltage_translators:SN74AUP1T34 U?
+U 1 1 5EC7A738
+P 7050 9600
+F 0 "U?" H 7050 9351 50  0000 C CNN
+F 1 "SN74AUP1T34" H 7050 9261 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 7100 9100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74aup1t34.pdf" H 7050 9170 50  0001 C CNN
+F 4 "_" H 7050 9600 50  0001 C CNN "MFN"
+F 5 "_" H 7050 9600 50  0001 C CNN "MFP"
+F 6 "digikey" H 7050 9600 50  0001 C CNN "D1"
+F 7 "mouser" H 7050 9600 50  0001 C CNN "D2"
+F 8 "_" H 7050 9600 50  0001 C CNN "D1PN"
+F 9 "_" H 7050 9600 50  0001 C CNN "D1PL"
+F 10 "_" H 7050 9600 50  0001 C CNN "D2PN"
+F 11 "_" H 7050 9600 50  0001 C CNN "D2PL"
+F 12 "_" H 7050 9600 50  0001 C CNN "Package"
+F 13 "_" H 7050 9600 50  0001 C CNN "Description"
+F 14 "_" H 7050 9600 50  0001 C CNN "Voltage"
+F 15 "_" H 7050 9600 50  0001 C CNN "Power"
+F 16 "_" H 7050 9600 50  0001 C CNN "Tolerance"
+F 17 "_" H 7050 9600 50  0001 C CNN "Temperature"
+F 18 "_" H 7050 9600 50  0001 C CNN "ReverseVoltage"
+F 19 "_" H 7050 9600 50  0001 C CNN "ForwardVoltage"
+F 20 "_" H 7050 9600 50  0001 C CNN "Cont.Current"
+F 21 "_" H 7050 9600 50  0001 C CNN "Frequency"
+F 22 "_" H 7050 9600 50  0001 C CNN "ResonnanceFreq"
+	1    7050 9600
+	1    0    0    -1  
 $EndComp
 $Comp
 L Sensor_Motion:ICM-20948 U19

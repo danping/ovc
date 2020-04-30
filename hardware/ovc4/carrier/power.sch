@@ -138,6 +138,7 @@ NoConn ~ 5100 1950
 NoConn ~ 5100 2050
 NoConn ~ 6000 2250
 NoConn ~ 6000 2350
+NoConn ~ 8350 4550
 Wire Wire Line
 	625  1400 1000 1400
 Wire Wire Line
@@ -433,10 +434,6 @@ Wire Wire Line
 Wire Wire Line
 	7250 1950 7750 1950
 Wire Wire Line
-	7450 3650 7450 4000
-Wire Wire Line
-	7450 4200 7450 4400
-Wire Wire Line
 	7550 1300 8050 1300
 Wire Wire Line
 	7750 2150 7750 2250
@@ -468,8 +465,6 @@ Wire Wire Line
 	8150 1300 8050 1300
 Wire Wire Line
 	8175 4300 8350 4300
-Wire Wire Line
-	8175 4550 8350 4550
 Wire Wire Line
 	8200 4100 8200 3950
 Wire Wire Line
@@ -592,16 +587,10 @@ Text Label 7100 4400 1    50   ~ 0
 OV1
 Text Label 7250 1950 0    50   ~ 0
 nSYS_RESET
-Text Label 7450 3650 3    50   ~ 0
-VREG_5V
-Text Label 7450 4400 1    50   ~ 0
-OV2
 Text Label 8025 4450 0    50   ~ 0
 VREG_5V
 Text Label 8175 4300 0    50   ~ 0
 OV1
-Text Label 8175 4550 0    50   ~ 0
-OV2
 Text Label 8900 2350 2    50   ~ 0
 V33_POK
 Text Label 9150 6025 0    50   ~ 0
@@ -877,17 +866,6 @@ F 3 "" H 7100 4600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0153
-U 1 1 5ECFB25E
-P 7450 4600
-F 0 "#PWR0153" H 7450 4350 50  0001 C CNN
-F 1 "GND" H 7455 4430 50  0001 C CNN
-F 2 "" H 7450 4600 50  0001 C CNN
-F 3 "" H 7450 4600 50  0001 C CNN
-	1    7450 4600
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0160
 U 1 1 5EA75FC9
 P 7550 1500
@@ -1083,28 +1061,6 @@ F 1 "5k" V 6996 4500 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" H 7100 4500 50  0001 C CNN
 F 3 "~" H 7100 4500 50  0001 C CNN
 	1    7100 4500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R27
-U 1 1 5ECC612B
-P 7450 4100
-F 0 "R27" V 7255 4100 50  0000 C CNN
-F 1 "21k" V 7346 4100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 7450 4100 50  0001 C CNN
-F 3 "~" H 7450 4100 50  0001 C CNN
-	1    7450 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R_Small R28
-U 1 1 5EDEB28C
-P 7450 4500
-F 0 "R28" V 7255 4500 50  0000 C CNN
-F 1 "5k" V 7346 4500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" H 7450 4500 50  0001 C CNN
-F 3 "~" H 7450 4500 50  0001 C CNN
-	1    7450 4500
 	1    0    0    -1  
 $EndComp
 $Comp
